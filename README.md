@@ -1,8 +1,8 @@
 # Meteologica - Visualizador de Datos Meteorológicos en Tiempo Real
 
-<img  src="./public/screenshots/image.png"  alt="Captura de pantalla"  width="650">
+<img  src="./public/screenshots/ss1.png"  alt="Captura de pantalla"  width="650">
 
-<img  src="./public/screenshots/image2.png"  alt="Captura de pantalla"  width="650">
+<img  src="./public/screenshots/ss2.png"  alt="Captura de pantalla"  width="650">
 
 ## Índice
 
