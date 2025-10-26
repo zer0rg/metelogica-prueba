@@ -40,6 +40,7 @@
    * los datos ya prcoesados e inicia los intervalos tantos del reloj, countdown y refresco
    */
   onMount(() => {
+    lastRefreshStr = getHour();
     (async () => {
       try {
         let data: Measurements = await DataService.loadAndProcessYMLData();

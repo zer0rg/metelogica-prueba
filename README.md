@@ -1,5 +1,9 @@
 # Meteologica - Visualizador de Datos Meteorológicos en Tiempo Real
 
+<img src="./public/screenshots/dark.png" alt="Captura de pantalla" width="400">
+<img src="./public/screenshots/light.png" alt="Captura de pantalla" width="400">
+
+
 ## Resumen del Proyecto
 
 El objetivo es visualizar datos meteorológicos (temperatura, potencia y energía) en tiempo real, cargándolos desde un archivo YAML y actualizando la información cada 5 segundos para simular un flujo de datos en vivo, asegurando el manejo correcto de la cantidad de datos en el gráfico.
