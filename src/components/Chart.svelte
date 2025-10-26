@@ -12,7 +12,7 @@
   Chart.register(...registerables);
 
   // Propiedas recibidas del padre
-  let { measurements, dataInterval } = $props<{
+  let { measurements } = $props<{
     measurements: DataForRender | null;
     dataInterval: number;
   }>();
@@ -305,7 +305,7 @@
   .chart-wrapper {
     background-color: var(--bg-elevated);
     padding: var(--spacing-lg);
-    border-radius: var(--radius-md);
+    border-radius: var(--radius-md); 
     height: 400px;
     position: relative;
     width: 100%;
