@@ -89,7 +89,7 @@
 	 * el estado de los datos
 	 */
 	function refreshData(data: Measurements): DataForRender {
-    lastRefresh = Date.now();
+		lastRefresh = Date.now();
 		const nowSeconds = currentSecondsOfDay();
 
 		const powerFilter = data!.power.values.filter(
