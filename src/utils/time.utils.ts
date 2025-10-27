@@ -2,7 +2,7 @@
  * timeToSeconds(timeStr : string) :
  *  Devuelve la conversión de un string de hora completa (00:00:00) a segundos
  */
-export function timeToSeconds(timeStr: string) {
+export function timeToSeconds(timeStr: string) : number {
   const [h, m, s] = timeStr.split(":").map(Number);
   return h * 3600 + m * 60 + s;
 }
@@ -11,7 +11,7 @@ export function timeToSeconds(timeStr: string) {
  * currentSecondsOfDay()
  * Devuelve la hora actual en segundos
  */
-export function currentSecondsOfDay() {
+export function currentSecondsOfDay() : number {
   const now = new Date();
   return now.getHours() * 3600 + now.getMinutes() * 60 + now.getSeconds();
 }
@@ -20,7 +20,7 @@ export function currentSecondsOfDay() {
  * getHour()
  * Devuelve la hora actual en una string formato HH:MM:SS
  */
-export function getHour() {
+export function getHour() : string{
   const now = new Date();
   const hours = now.getHours().toString().padStart(2, "0");
   const minutes = now.getMinutes().toString().padStart(2, "0");

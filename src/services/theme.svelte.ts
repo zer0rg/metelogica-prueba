@@ -1,7 +1,7 @@
-type Theme = "light" | "dark";
+export type Theme = "light" | "dark";
 
 class ThemeService {
-  theme = $state<Theme>("dark");
+  theme : Theme = $state<Theme>("dark");
 
   constructor() {
     // Inicializar tema al crear el servicio
@@ -12,7 +12,7 @@ class ThemeService {
    * initialize()
    * Carga el tema guardado o detecta la preferencia del sistema
    */
-  private initialize() {
+  private initialize() : void {
     const savedTheme = localStorage.getItem("theme") as Theme | null;
 
     if (savedTheme) {
@@ -29,7 +29,7 @@ class ThemeService {
    * setTheme(theme: Theme)
    * Aplica el tema al documento y lo guarda en localStorage
    */
-  private setTheme(theme: Theme) {
+  private setTheme(theme: Theme) : void {
     this.theme = theme;
 
     if (theme === "dark") {
@@ -45,7 +45,7 @@ class ThemeService {
    * toggleTheme()
    * Alterna entre tema claro y oscuro
    */
-  toggleTheme() {
+  toggleTheme() : void {
     this.setTheme(this.theme === "dark" ? "light" : "dark");
   }
 

@@ -7,14 +7,14 @@ import type { ToastItem,  ToastOptions } from "../types/toast";
  * Servicio para manejar el estado global de Toast.
  */
 class ToastService  {
-  toasts = $state<ToastItem[]>([]);
+  toasts : ToastItem[] = $state<ToastItem[]>([]);
 
   /**
    * show(message: string, options: {title!, status!} ToastOptions)
    * Muestra una notificacion
    * Devuelve el ID del toast
    */
-  show(message: string, options: ToastOptions) {
+  show(message: string, options: ToastOptions) : string {
     const toast: ToastItem = {
       id: this.uid(),
       title: options.title,
@@ -33,7 +33,7 @@ class ToastService  {
    * remove(id: string)
    * Elimina un toast
    */
-  remove(id: string) {
+  remove(id: string) : void {
     this.toasts = this.toasts.filter((t) => t.id !== id);
   }
 
@@ -41,7 +41,7 @@ class ToastService  {
    * clearAll()
    * Limpia todos los toast
    */
-  clearAll() {
+  clearAll() : void {
     this.toasts = [];
   }
 

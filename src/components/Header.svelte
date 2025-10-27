@@ -1,8 +1,8 @@
 <script lang="ts">
-  import { themeService } from "../services/theme.svelte";
+  import { type Theme, themeService } from "../services/theme.svelte";
 
   // Estado del tema
-  let darkMode = $state<"light" | "dark">("dark");
+  let darkMode : Theme = $state<Theme>("dark");
 
   $effect(() => {
     darkMode = themeService.theme
