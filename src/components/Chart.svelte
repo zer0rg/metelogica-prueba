@@ -11,7 +11,6 @@
 	// Propiedas recibidas del padre
 	let { measurements } = $props<{
 		measurements: DataForRender | null;
-		dataInterval: number;
 	}>();
 
 	// Estado principal del chart
@@ -63,13 +62,19 @@
 	 * Se recalcula cuando el estado de measurements o MINUTES_SHOWN cambia
 	 */
 	let windowed: DataForRender = $derived.by(() => {
-		if (!measurements)
+		if (!measurements) {
+			toastService.show("Error actualizando los datos", {
+				title: "ERROR",
+				status: "error",
+			});
+
 			return {
 				timeLabels: [] as string[],
 				power: [] as number[],
 				temperature: [] as number[],
 				energy: [] as number[],
 			};
+		}
 
 		// Numero total de puntos que queremos considerar segun los minutos que vamos a mostrar
 		const totalPoints = Math.min(
@@ -110,12 +115,20 @@
 
 	// Cuando la derivada windowed cambia, actualizamos el chart.
 	$effect(() => {
-		const w = windowed;
-		if (!chart || !w || w.timeLabels!.length === 0) return;
-		chart.data.labels = w.timeLabels;
-		chart.data.datasets[0].data = w.power as any;
-		chart.data.datasets[1].data = w.temperature as any;
-		chart.data.datasets[2].data = w.energy as any;
+		if (!chart || !windowed || windowed.timeLabels.length === 0) {
+			toastService.show("Error actualizando los datos", {
+				title: "ERROR",
+				status: "error",
+			});
+			return;
+		}
+
+		const { timeLabels, power, temperature, energy } = windowed;
+
+		chart.data.labels = timeLabels;
+		chart.data.datasets[0].data = power;
+		chart.data.datasets[1].data = temperature;
+		chart.data.datasets[2].data = energy;
 		chart.update();
 	});
 

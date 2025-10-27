@@ -68,7 +68,7 @@
 				loading = false;
 			} catch (error: any) {
 				loading = false;
-				toastService.show("Error al cargar los datos", {
+				toastService.show("Error al cargas los datos", {
 					title: "ERROR",
 					status: "error",
 				});
@@ -89,6 +89,7 @@
 	 * el estado de los datos
 	 */
 	function refreshData(data: Measurements): DataForRender {
+    lastRefresh = Date.now();
 		const nowSeconds = currentSecondsOfDay();
 
 		const powerFilter = data!.power.values.filter(
@@ -194,7 +195,7 @@
 				<span>{actualTime}</span>
 			</div>
 		</div>
-		<Chart {measurements} {dataInterval} />
+		<Chart {measurements} />
 		<div class="update-info">
 			<p>Actualización en {dataInterval}s</p>
 			<p>Ultima actualización: {lastRefreshStr}</p>
